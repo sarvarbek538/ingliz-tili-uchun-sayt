@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingliz tili oqituvchilar malumoti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ingliz tili oqituvchilari Haqida Ma'lumot</h1>
+        <div class="input-box">
+            <input type="text" id="nameInput" placeholder="Ismni kiriting">
+            <button id="searchButton">Qidiruv</button>
+        </div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <div class="menu">
+        <h1>Ismlardan nusxa olib qidiruvga qoying</h1>
+        <ul>
+            <li>
+                Olimova Gulnoza
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Djurayeva Dildora
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Kuchkarova Dilnoza
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Usmanova Nigora
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Burxanova Kamola
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Sayfullayeva Aziza
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Djalilova Gavxaroy
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Dadamirzayeva Xamida
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+            <li>
+                Sharipova Feruza
+                <button onclick="copySpecificText(this)">Nusxa Olish</button>
+            </li>
+        </ul>
+        <p id="status" style="display: none; color: green; margin-top: 10px;">Nusxa Olindi!</p>
+    </div>
+    </div>
+
+    <script>
+        function copySpecificText(button) {
+            const text = button.parentElement.innerText.replace("Nusxa Olish", "").trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                const status = document.getElementById("status");
+                status.textContent = `"${text}" Nusxa Olindi!`;
+                status.style.display = "block";
+
+                setTimeout(() => {
+                    status.style.display = "none";
+                }, 2000);
+            }).catch(err => {
+                alert("Nusxalashda xatolik yuz berdi: " + err);
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
